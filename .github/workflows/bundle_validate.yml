@@ -9,11 +9,6 @@ jobs:
   validate:
     runs-on: ubuntu-latest
 
-    env:
-      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
-      DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID }}
-      DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_CLIENT_SECRET }}
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -22,5 +17,10 @@ jobs:
         uses: databricks/setup-cli@main
 
       - name: Validate Bundle
-        working-directory: Practice_Assignments/Day9/Assignment_9_Dabs
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID }}
+          DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_CLIENT_SECRET }}
         run: databricks bundle validate -t prod
+
+       
