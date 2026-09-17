@@ -7,7 +7,8 @@ bundle:
 include:
   - resources/*.yml
 
-# Variable declarations. These variables are assigned in the dev/prod targets.
+# Variable declarations.
+# These variables are assigned in the dev/prod targets.
 variables:
   catalog:
     description: The catalog to use
